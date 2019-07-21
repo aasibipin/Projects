@@ -9,3 +9,12 @@ response = urllib.request.urlopen(url).read()
 
 json_obj = str(response, 'utf-8')
 data = json.loads(json_obj)
+
+
+
+weather = data["weather"]
+name = data["name"]
+main = data["main"]
+
+print (name)
+print (main["temp"])
