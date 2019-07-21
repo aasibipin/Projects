@@ -9,4 +9,3 @@ response = urllib.request.urlopen(url).read()
 
 json_obj = str(response, 'utf-8')
 data = json.loads(json_obj)
-
