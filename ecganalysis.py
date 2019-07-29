@@ -12,7 +12,5 @@ sample_ecg = ecg.iloc[30:sample_size,[0,2]]
 time = sample_ecg.iloc[:,0]
 value = sample_ecg.iloc[:,1]
 
-print (np.arange(time.size))
-print (value)
 plt.plot (np.arange(time.size),value)
 plt.show()
