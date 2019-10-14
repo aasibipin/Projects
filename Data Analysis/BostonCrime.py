@@ -16,3 +16,5 @@ df.replace({"OFFENSE_CODE":legend_dict}, inplace  = True)   # OR use : df["OFFEN
 
 df_drug = df[df["OFFENSE_CODE_GROUP"].str.contains("Drug")]
 
+s = 'string'
+t = 'a'

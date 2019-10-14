@@ -7,8 +7,8 @@ while True:
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
     #hsv hue set value
-    lower_red = np.array([1,0,0])
-    upper_red = np.array([6,225,255])
+    lower_red = np.array([0,0,0])
+    upper_red = np.array([225,225,255])
     kernal = np.ones((10,10),np.uint8)
 
     mask = cv2.inRange(hsv, lower_red, upper_red)   #Mask = 1 or = 0 
