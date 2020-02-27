@@ -19,7 +19,7 @@ while True:
     gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
     res = cv2.matchTemplate(gray_frame, template_gray, cv2.TM_CCOEFF_NORMED)
-    THRES = 0.4
+    THRES = 0.43
     loc = np.where(res>=THRES)
     for pt in zip(*loc[::-1]):
         cv2.rectangle(frame, pt, (pt[0] + w, pt[1] + h), (0,255,0),2)
@@ -42,7 +42,6 @@ plt.title('Displacement')
 plt.xlabel('X-Axis')
 plt.ylabel('Y-Axis')
 plt.show()
-
 
 cv2.destroyAllWindows()
 cap.release()
