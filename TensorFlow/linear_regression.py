@@ -61,9 +61,9 @@ for f in train_data:
     line = plt.plot(train_x,f_y)
     plt.setp(line,color = (cr,cg,cb))
 
-plt.plot(train_x, train_y, 'ro')
+plt.plot(train_x, train_y, 'bo')
 
-green_line = mpatches.Patch(color='red', label='Data Points')
+green_line = mpatches.Patch(color='blue', label='Data Points')
 
 plt.legend(handles=[green_line])
 
