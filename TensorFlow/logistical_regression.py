@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 
 iris = load_iris()
 iris_X, iris_y = iris.data[:-1, :], iris.target[:-1]
-iris_y = pd.get_dummies(iris_y).values
+iris_y = pd.get_dummies(iris_y).values  # Initialize y valus with random numbers
 trainX, testX, trainY, testY = train_test_split(iris_X, iris_y, test_size=0.33, random_state = 42)
 
 numFeatures = trainX.shape[1]
@@ -19,31 +19,36 @@ numLabels = trainY.shape[1]
 
 # Placeholders
 # 'None' means TensorFlow shouldn't expect a fixed number in that dimension
+tf.placeholder(tf.float32,)
 X = tf.placeholder(tf.float32, [None, numFeatures])
 yGold = tf.placeholder(tf.float32, [None, numLabels])
 
 # Initalizing variable (weights) values
 # Weight: W has shape [4, 3]. to produce 3 dimensional vectors
+# [1x4] dot [4x3] = [1x3]
+# Input dot weights = output
+W = tf.Variable(tf.zeros([4,3]))
+b = tf.Variable(tf.zeros([3]))      
+tf.Variable()
 
-W = tf.Variable(tf.zeros([4,3]))   # 4 Dimensional inputs and 3 classes 
-b = tf.Variable(tf.zeros([3]))
-
-# Randomly Sample with a normal distribution withstd = 0.01
-
-weights = tf.Variable(tf.random_normal([numFeatures,numLabels],
+# Set initial values of weights and bias
+weights = tf.Variable(tf.random_normal( shape= [numFeatures,numLabels],
                                         mean = 0,
                                         stddev = 0.01,
                                         name = 'weights'))
 
-bias = tf.Variable(tf.random_normal([1, numLabels],
+bias = tf.Variable(tf.random_normal(shape = [1, numLabels],
                                     mean = 0,
                                     stddev = 0.01,
                                     name = 'bias'))
 
 # LOGISTIC REGRESSION MODEL
-# ŷ = sigmoid(WX+b)
+# ŷ = sigmoid(XdotW +b)
+# Creating operations for function to be run in the session
 apply_weights_OP = tf.matmul(X, weights, name = 'apply_weights')
 add_bias_OP = tf.add(apply_weights_OP, bias, name = 'add_bias')
+
+# Activation function, binary output
 activation_OP = tf.nn.sigmoid(add_bias_OP, name = 'activation')
 
 
@@ -121,4 +126,4 @@ print('Final accuracy on test set: %s' %str(sess.run(accuracy_OP, feed_dict = {X
 
 
 plt.plot([np.mean(cost_values[i-50:i]) for i in range(len(cost_values))])
-plt.show()
+plt.show() 
