@@ -29,7 +29,7 @@ sess.run(tf.global_variables_initializer())
 y = tf.nn.softmax(tf.matmul(x,W) + b)
 
 # Cost Function: Cross Entropy
-cross_entropy = tf.reduce_mean(-tf.reduce_sum(y_ * tf.log(y), reduction_indices= [1]))
+cross_entropy = tf.reduce_mean(-tf.reduce_sum(y_ * tf.log(y), axis= [1]))
 
 # Optimization: Gradient Descent
 train_step = tf.train.GradientDescentOptimizer(0.5).minimize(cross_entropy)
@@ -37,12 +37,11 @@ train_step = tf.train.GradientDescentOptimizer(0.5).minimize(cross_entropy)
 # Loading 50 training examples for each training iteration
 for i in range(1000): 
     batch = mnist.train.next_batch(50)
-    train_step.run(feed_dict = {x: batch[0], y_: batch[1]})
+    train_step.run(feed_dict = {x: batch[0], y_: batch[1]}) # Batch[0] = Train X, Batch[1] = Train Y 
 
 
 correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_, 1))
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 acc = accuracy.eval(feed_dict = {x: mnist.test.images, y_: mnist.test.labels}) * 100
-print ("Final accuracy for simple ANN model: {} % ".format(acc))
+print ("Final accuracy for simple ANN mode l: {} % ".format(acc))
 sess.close()
-
