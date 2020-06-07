@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - QuickStart",
+            "request": "launch",
+            "mainClass": "QuickStart",
+            "projectName": "GitHub Projects_49cead08"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - hello",
             "request": "launch",
             "mainClass": "Javaprojects.hello",
