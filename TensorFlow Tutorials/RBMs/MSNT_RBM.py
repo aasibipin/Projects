@@ -46,7 +46,6 @@ err = tf.reduce_mean(tf.square(v0_state - v1_state))
 # Note: Cannot train gradient descent to minimize a log probability
 # Therefore use Gibbs or Contrast Divergence 
 
-
 # Using Contrast Divergence (CD - k) 
 # k = 1
 h1_prob = tf.nn.sigmoid(tf.matmul(v1_state, W) + hb)
