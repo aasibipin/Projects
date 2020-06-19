@@ -3,7 +3,9 @@
 import tensorflow as tf 
 import numpy as np 
 import pandas as pd 
-import matplotlib.pylab as plt 
+import matplotlib.pylab as plt  
+
+
 
 movies_df = pd.read_csv('ml-1m/movies.dat', sep= '::', header= None, 
 names=['MovieID', 'Title', 'Genres'], engine= 'python')
