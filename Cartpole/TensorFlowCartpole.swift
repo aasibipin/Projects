@@ -1,8 +1,11 @@
+// Following a tutorial from: https://github.com/tensorflow/swift-models/blob/master/Gym/CartPole/main.swift
+
+
 import PythonKit
 import TensorFlow
 
 
-// Initialize Python. This comment is a hook for internal use, do not remove.
+// Initialize Python.
 let np = Python.import("numpy")
 let gym = Python.import("gym")
 
@@ -10,7 +13,7 @@ let gym = Python.import("gym")
 let hiddenSize = 128
 let batchSize = 16
 /// Controls the amount of good/long episodes to retain for training.
-let percentile = 75
+let percentile = 80
 
 /// A simple two layer dense net.
 struct Net: Layer {
