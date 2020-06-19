@@ -1,1 +1,1 @@
-![alt text](https://github.com/bipin-a/projects/blob/master/Target%20Tracking%20in%20OpenCV/Theory.png)
+![alt text](https://github.com/bipin-a/projects/blob/master/3D%20Computer%20Vision%20Displacement%20Tracker/Theory.png)
