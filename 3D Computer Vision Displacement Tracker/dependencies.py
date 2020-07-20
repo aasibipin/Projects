@@ -13,11 +13,11 @@ def EuclidDistance(x,y,x2,y2):
     total_dist = ((xdist**2)+(ydist**2))**(1/2)  
     return (total_dist)
 
-# Moving Average of the first Object
 def MovingAverage(loc1,loc2,windowsize):
     res = list(zip(*loc1))
     res2 = list(zip(*loc2))
-
+    
+    # Moving Average of the first Object
     numbers_series = pd.Series(res[0])
     windows = numbers_series.rolling(windowsize)
     moving_averages = windows.mean()
