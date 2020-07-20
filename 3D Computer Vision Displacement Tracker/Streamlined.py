@@ -6,7 +6,8 @@ from statistics import mean
 from matplotlib.animation import FuncAnimation
 import time
 import pandas as pd
-from defs import EuclidDistance
+from dependencies import beginPlot
+from dependencies import EuclidDistance
 
 class Target: 
     def __init__(self, img):
@@ -32,13 +33,7 @@ class Target:
 X_AXISLIM = (0,650)
 Y_AXISLIM = (0,400)
 
-fig, ax1 = plt.subplots()
-ax1.set_xlim(X_AXISLIM)
-ax1.set_ylim(Y_AXISLIM)
-ax1.set_xlabel('X-Axis')
-ax1.set_ylabel('Y-Axis')
-ax1.set_title('Window Displacement')
-ax1.grid(True)  
+ax1,fig = beginPlot(X_AXISLIM, Y_AXISLIM, title = "Displacement")
 
 cap = cv2.VideoCapture(0)
 
@@ -74,7 +69,6 @@ while True:
     if len(X2s) != 0:           
         template2.addCoordinates(x = X2s[-1], y = Y2s[-1])
         template2.DrawOnFrame(frame=frame,borderSize= BORDER, color= (255,255,0))
-
     cv2.imshow("frame",frame)
 
     if cv2.waitKey(1) & 0xFF == ord('q'): 
